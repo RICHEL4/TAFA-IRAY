@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COSMOX - Prédiction Temporelle</title>
+    <link rel="stylesheet" href="cosmox.css">
+</head>
+<body>
+    <div class="container">
+        <h1>◊ COSMOX TAFA IRAY ∆</h1>
+        
+        <div class="input-group">
+            <input type="text" id="timeInput" placeholder="15:38">
+        </div>
+        
+        <button onclick="calculate()">CALCULER</button>
+        <button onclick="useCurrentTime()">HEURE ACTUELLE</button>
+        
+        <div class="result" id="result">
+            <div class="time">--:--</div>
+            <div class="multiplier">-</div>
+            <div class="risk">Niveau de risque:</div>
+            <div class="risk-level">-</div>
+            <div class="warning">BONNE BOOM</div>
+        </div>
+
+        <!-- Ajout d'un lien de retour -->
+        <a href="dashboard.html" class="back-btn">Retour au Dashboard</a>
+    </div>
+    <script src="cosmox.js"></script>
+</body>
+</html>

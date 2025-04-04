@@ -1,0 +1,112 @@
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #000;
+    color: #ff0055;
+    text-align: center;
+    padding: 20px;
+    background-image: radial-gradient(#220022, #000000);
+}
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 2px solid #ff0055;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 20px #ff0055;
+}
+h1 {
+    color: #ff0055;
+    text-shadow: 0 0 10px #ff0055;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+.input-group {
+    margin: 25px 0;
+}
+input {
+    padding: 12px;
+    width: 100px;
+    background-color: #111;
+    color: #ff0055;
+    border: 1px solid #ff0055;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+}
+button {
+    padding: 12px 25px;
+    background-color: #330011;
+    color: #ff0055;
+    border: 1px solid #ff0055;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 15px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+button:hover {
+    background-color: #550022;
+    box-shadow: 0 0 10px #ff0055;
+}
+.result {
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px dashed #ff0055;
+    border-radius: 10px;
+}
+.time {
+    font-size: 3em;
+    margin: 20px 0;
+    color: #ff0055;
+    text-shadow: 0 0 15px #ff0055;
+    letter-spacing: 5px;
+}
+.multiplier {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 20px 0;
+    animation: pulse 2s infinite;
+}
+.risk {
+    font-size: 1.2em;
+    margin-top: 30px;
+    color: #ff3355;
+    text-transform: uppercase;
+}
+.risk-level {
+    font-size: 1.8em;
+    color: #ff0000;
+    font-weight: bold;
+    margin: 10px 0;
+    text-shadow: 0 0 10px #ff0000;
+}
+@keyframes pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+.warning {
+    font-size: 0.9em;
+    color: #ff5555;
+    margin-top: 30px;
+    font-style: italic;
+}
+
+/* Style pour le bouton de retour */
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #330011;
+    color: #ff0055;
+    border: 1px solid #ff0055;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+.back-btn:hover {
+    background-color: #550022;
+    box-shadow: 0 0 10px #ff0055;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription & Connexion - TAFA IRAY</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    <div class="container">
+        <h1>TAFA IRAY</h1>
+
+        <!-- Section Inscription -->
+        <div class="form-section" id="register-section">
+            <h2>Inscription</h2>
+            <input type="text" id="register-phone" placeholder="Numéro Madagascar (+261 XX XXX XXXX)">
+            <input type="text" id="register-code" placeholder="Code d'activation">
+            <button id="register-btn">S'inscrire</button>
+            <p id="register-message" class="message"></p>
+            <p>Déjà inscrit ? <a href="#" id="switch-to-login">Se connecter</a></p>
+        </div>
+
+        <!-- Section Connexion -->
+        <div class="form-section" id="login-section" style="display: none;">
+            <h2>Connexion</h2>
+            <input type="text" id="login-phone" placeholder="Numéro Madagascar (+261 XX XXX XXXX)">
+            <button id="login-btn">Se connecter</button>
+            <p id="login-message" class="message"></p>
+            <p>Pas de compte ? <a href="#" id="switch-to-register">S'inscrire</a></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
