@@ -8,8 +8,29 @@
 </head>
 <body>
     <div class="background-animation"></div>
-    <div class="container">
+    <div class="container" id="auth-container">
+        <!-- Section d'inscription -->
+        <div id="register-section" style="display: none;">
+            <h1>Inscription</h1>
+            <input type="text" id="username-input" placeholder="Entrez votre nom">
+            <input type="text" id="activation-code-input" placeholder="Entrez votre code d'activation">
+            <button id="register-btn">S'inscrire</button>
+            <p>Déjà inscrit ? <a href="#" id="switch-to-login">Se connecter</a></p>
+        </div>
+
+        <!-- Section de connexion -->
+        <div id="login-section">
+            <h1>Connexion</h1>
+            <input type="text" id="login-code-input" placeholder="Entrez votre code d'activation">
+            <button id="login-btn">Se connecter</button>
+            <p>Pas de compte ? <a href="#" id="switch-to-register">S'inscrire</a></p>
+        </div>
+    </div>
+
+    <!-- Section principale (visible après connexion) -->
+    <div class="container" id="main-container" style="display: none;">
         <h1>TAFA IRAY</h1>
+        <p>Bienvenue, <span id="user-name-display"></span> ! <a href="#" id="logout-btn">Déconnexion</a></p>
         <div class="response-box" id="response">
             <!-- Les heures décalées et les prédictions seront affichées ici -->
         </div>
@@ -30,4 +51,4 @@
 
     <script src="script.js"></script>
 </body>
-</html>
+                          </html>
