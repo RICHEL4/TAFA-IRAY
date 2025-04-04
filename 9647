@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghoost.com - Paiement 1xBet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Contenu principal */
+        main {
+            width: 90%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .payment-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+        }
+
+        .payment-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .payment-header h2 {
+            color: #6e48aa;
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+        }
+
+        .payment-header p {
+            color: #666;
+        }
+
+        /* Formulaire */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .form-group input[type="tel"],
+        .form-group input[type="number"],
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #9d50bb;
+            outline: none;
+        }
+
+        /* Options opérateurs */
+        .operator-options {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .operator-option {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .operator-option input[type="radio"] {
+            display: none;
+        }
+
+        .operator-option label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .operator-option label img {
+            width: 50px;
+            height: auto;
+            margin-bottom: 0.5rem;
+        }
+
+        .operator-option label span {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .operator-option input[type="radio"]:checked + label {
+            border-color: #6e48aa;
+            background-color: #f9f0ff;
+        }
+
+        /* Checkbox conditions */
+        .terms {
+            display: flex;
+            align-items: center;
+        }
+
+        .terms input {
+            margin-right: 10px;
+        }
+
+        .terms a {
+            color: #6e48aa;
+            text-decoration: none;
+        }
+
+        .terms a:hover {
+            text-decoration: underline;
+        }
+
+        /* Bouton de soumission */
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(110, 72, 170, 0.3);
+        }
+
+        /* Section d'information */
+        .info-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: #6e48aa;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            margin-bottom: 0.5rem;
+            color: #6e48aa;
+        }
+
+        /* Footer */
+        footer {
+            background: #2a2a2a;
+            color: #eee;
+            padding: 3rem 0 0;
+        }
+
+        .footer-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section p {
+            margin-bottom: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .footer-section i {
+            margin-right: 10px;
+            color: #9d50bb;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #9d50bb;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 1.5rem;
+            background: #1a1a1a;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .operator-options {
+                flex-direction: column;
+            }
+            
+            .info-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Styles pour la modal de succès */
+        .success-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-header i {
+            font-size: 3rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+        
+        .modal-header h3 {
+            color: #4CAF50;
+            font-size: 1.5rem;
+        }
+        
+        .modal-body p {
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .modal-body .note {
+            margin-top: 1.5rem;
+            font-style: italic;
+            color: #666;
+            border: none;
+        }
+        
+        .close-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #6e48aa;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1.5rem;
+        }
+        
+        .close-btn:hover {
+            background: #9d50bb;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1 class="logo">Ghoost.com</h1>
+            <span class="tagline">Paiements sécurisés pour 1xBet</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="payment-container">
+            <div class="payment-header">
+                <h2>Recharger votre compte 1xBet</h2>
+                <p>Choisissez votre opérateur mobile et complétez les informations</p>
+            </div>
+
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label for="operator">Opérateur mobile</label>
+                    <div class="operator-options">
+                        <div class="operator-option">
+                            <input type="radio" id="orange" name="operator" value="orange" checked>
+                            <label for="orange">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Orange_logo.svg/1200px-Orange_logo.svg.png" alt="Orange Money">
+                                <span>Orange Money</span>
+                            </label>
+                        </div>
+                        <div class="operator-option">
+                            <input type="radio" id="airtel" name="operator" value="airtel">
+                            <label for="airtel">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Airtel_Logo.svg/1200px-Airtel_Logo.svg.png" alt="Airtel Money">
+                                <span>Airtel Money</span>
+                            </label>
+                        </div>
+                        <div class="operator-option">
+                            <input type="radio" id="telma" name="operator" value="telma">
+                            <label for="telma">
+                                <img src="https://www.telma.mg/wp-content/uploads/2021/09/logo-telma.png" alt="Telma">
+                                <span>Telma</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Numéro de téléphone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Ex: 0341234567" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Montant (MGA)</label>
+                    <input type="number" id="amount" name="amount" min="1000" placeholder="Ex: 10000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="1xbet-id">ID 1xBet</label>
+                    <input type="text" id="1xbet-id" name="1xbet-id" placeholder="Votre identifiant 1xBet" required>
+                </div>
+
+                <div class="form-group terms">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">J'accepte les <a href="#">conditions générales</a> de Ghoost.com</label>
+                </div>
+
+                <button type="submit" class="submit-btn">Payer maintenant</button>
+            </form>
+        </section>
+
+        <section class="info-section">
+            <div class="info-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Paiement sécurisé</h3>
+                <p>Toutes vos transactions sont cryptées et protégées</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Transfert instantané</h3>
+                <p>Votre compte 1xBet est crédité en moins de 5 minutes</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-headset"></i>
+                <h3>Support 24/7</h3>
+                <p>Notre équipe est disponible pour vous aider à tout moment</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Ghoost.com</h4>
+                <p>La solution de paiement la plus rapide et sécurisée pour vos rechargements 1xBet via mobile money.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-envelope"></i> support@ghoost.com</p>
+                <p><i class="fas fa-phone"></i> +261 34 12 345 67</p>
+            </div>
+            <div class="footer-section">
+                <h4>Réseaux sociaux</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Ghoost.com - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const paymentForm = document.getElementById('paymentForm');
+            
+            paymentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Récupération des valeurs du formulaire
+                const operator = document.querySelector('input[name="operator"]:checked').value;
+                const phone = document.getElementById('phone').value;
+                const amount = document.getElementById('amount').value;
+                const xbetId = document.getElementById('1xbet-id').value;
+                
+                // Validation simple
+                if (!phone || !amount || !xbetId) {
+                    alert('Veuillez remplir tous les champs');
+                    return;
+                }
+                
+                if (phone.length < 10) {
+                    alert('Veuillez entrer un numéro de téléphone valide');
+                    return;
+                }
+                
+                if (amount < 1000) {
+                    alert('Le montant minimum est de 1000 MGA');
+                    return;
+                }
+                
+                // Simulation de traitement
+                showLoading();
+                
+                // Simulation d'un délai de traitement
+                setTimeout(() => {
+                    hideLoading();
+                    showSuccess(operator, phone, amount, xbetId);
+                }, 2000);
+            });
+            
+            function showLoading() {
+                const submitBtn = document.querySelector('.submit-btn');
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Traitement en cours...';
+            }
+            
+            function hideLoading() {
+                const submitBtn = document.querySelector('.submit-btn');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Payer maintenant';
+            }
+            
+            function showSuccess(operator, phone, amount, xbetId) {
+                // Création d'une modal de succès
+                const modal = document.createElement('div');
+                modal.className = 'success-modal';
+                modal.innerHTML = `
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Paiement réussi!</h3>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Opérateur:</strong> ${operator === 'orange' ? 'Orange Money' : operator === 'airtel' ? 'Airtel Money' : 'Telma'}</p>
+                            <p><strong>Numéro:</strong> ${phone}</p>
+                            <p><strong>Montant:</strong> ${amount} MGA</p>
+                            <p><strong>ID 1xBet:</strong> ${xbetId}</p>
+                            <p class="note">Votre compte 1xBet sera crédité dans quelques minutes. Consultez votre solde pour vérifier.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="close-btn">Fermer</button>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                
+                // Fermeture de la modal
+                document.querySelector('.close-btn').addEventListener('click', function() {
+                    document.body.removeChild(modal);
+                    paymentForm.reset();
+                });
+            }
+            
+            // Formatage automatique du numéro de téléphone
+            document.getElementById('phone').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 2) {
+                    value = value.substring(0, 2) + ' ' + value.substring(2);
+                }
+                if (value.length > 5) {
+                    value = value.substring(0, 5) + ' ' + value.substring(5);
+                }
+                if (value.length > 8) {
+                    value = value.substring(0, 8) + ' ' + value.substring(8);
+                }
+                e.target.value = value;
+            });
+        });
+    </script>
+</body>
+</html>
